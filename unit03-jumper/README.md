@@ -25,7 +25,7 @@ Jumper responsibilities:
     Keep track of if person is alive
 Jumper Attribute of parchuteLives int
 Jumper Method of checkAlive() returns bool
-Jumper UpdateLives() return void subtracts one live from parachuteLives
+Jumper UpdateLives() returns void, subtracts one live from parachuteLives
 Jumper method GetParachuteLives() retuns int parachuteLives
 
 Word responsibilities:
