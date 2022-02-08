@@ -10,10 +10,15 @@ namespace unit03_jumper.Game
         {
         }
 
-        public int ReadNumber(string prompt)
+        public string GetInput(string prompt)
         {
-            string rawValue = ReadText(prompt);
-            return int.Parse(rawValue, System.Globalization.CultureInfo.InvariantCulture);
+            Console.Write(prompt);
+            return Console.ReadLine();
+        }
+
+        public void WriteText(string text)
+        {
+            Console.WriteLine(text);
         }
     }
 }
