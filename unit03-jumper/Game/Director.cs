@@ -7,7 +7,7 @@ namespace unit03_jumper.Game
     public class Director
     {
 
-        Director()
+        public Director()
         {
         }
 
