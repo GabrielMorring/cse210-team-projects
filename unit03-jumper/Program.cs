@@ -7,8 +7,10 @@ namespace unit03_jumper.Game
     {
         static void Main(string[] args)
         {
-            Director director = new Director();
+            Director director = new Director();  
             director.StartGame();
         }
     }
 }
+
+//David Comment 
