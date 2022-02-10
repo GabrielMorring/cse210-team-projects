@@ -7,23 +7,28 @@ namespace unit03_jumper.Game
     public class Word
     {
 
+        List<string> _word;
+
         public Word()
         {
             //create array of words
-            string[] _word = {"tacos", "car", "apple", "train", "friend", "house", "marshmallow", "colors"};
+            _word = new List<string>{"tacos", "car", "apple", "train", "friend", "house", "marshmallow", "colors"};
             
 
-            Random _randWord = new Random();
+            
 
-
-            int index = _randWord.Next(_word.Length);
-
-            var _displayWord = _word[index];
-
-            return;
+       
 
         }
-
+        public string GetRandomWord()
+                {
+                    Random _randWord = new Random();
+                    int index = _randWord.Next(_word.Count);
+                    var _displayWord = _word[index];
+                
+                    return _displayWord;
+                }
+                
      
 
     }
