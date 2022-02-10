@@ -54,10 +54,7 @@ namespace unit03_jumper.Game
         {
             PrintUserGuesses();
             PrintJumper();
-            if (!jumper.CheckAlive)
-            {
-                _isPlaying = false;
-            }
+            _isPlaying = jumper.CheckAlive();
         }
 
         private void PrintUserGuesses()
@@ -80,7 +77,8 @@ namespace unit03_jumper.Game
         private void PrintJumper()
         {
             PrintParachute();
-            if (jumper.CheckAlive == true)
+            bool isAlive = jumper.CheckAlive();
+            if (isAlive)
             {
                 Console.WriteLine("   o");
             }
