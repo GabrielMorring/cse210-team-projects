@@ -13,11 +13,18 @@ namespace unit03_jumper.Game
         private string _secretWord;
         private string _userGuesses;
         private string _currentGuess;
+        private string _printableWord;
         public Director()
         {
             _isPlaying = true;
             _secretWord = word.GetRandomWord();
-            _userGuesses = _secretWord.ToUpper();
+            _userGuesses = "";
+            
+            for (int i = 0; i < _secretWord.Length; i++)
+            {
+                _userGuesses += "_";
+            }
+            _printableWord = _userGuesses;
         }
 
         public void StartGame()
@@ -40,9 +47,22 @@ namespace unit03_jumper.Game
 
         private void DoUpdates()
         {
-            if (_userGuesses.Contains(Char.ToUpper(_currentGuess[0])))
+            
+            if (_secretWord.Contains(_currentGuess))
             {
-                _userGuesses.Replace(Char.ToUpper(_currentGuess[0]) , _currentGuess[0]);
+                _printableWord = "";
+                for (int i = 0; i < _secretWord.Length; i++)
+                {
+                    if(_secretWord[i] == _currentGuess[0])
+                    {
+                        _printableWord += _currentGuess;
+                    }
+                    else
+                    {
+                        _printableWord += _userGuesses[i];
+                    }
+                }
+                _userGuesses  = _printableWord;
             }
             else 
             {
@@ -55,21 +75,18 @@ namespace unit03_jumper.Game
             PrintUserGuesses();
             PrintJumper();
             _isPlaying = jumper.CheckAlive();
+            if (_printableWord == _secretWord)
+            {
+                _isPlaying = false;
+            }
         }
 
         private void PrintUserGuesses()
         {
             Console.WriteLine("\n");
-            for (int i = 0; i < _userGuesses.Length; i++)
+            for (int i = 0; i < _printableWord.Length; i++)
             {
-                if (Char.IsLower(_userGuesses[i]))
-                {
-                    Console.Write($"{_userGuesses[i]} ");
-                } 
-                else 
-                {
-                    Console.Write($"_ ");
-                }
+                Console.Write($"{_printableWord[i]} ");
             }
             Console.WriteLine("\n");
         }
