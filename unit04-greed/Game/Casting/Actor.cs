@@ -18,9 +18,6 @@ namespace Unit04.Game.Casting
         private Point position = new Point(0, 0);
         private Point velocity = new Point(0, 0);
 
-        // test public
-
-        public int newVariable = 5;
 
         /// <summary>
         /// Constructs a new instance of Actor.
