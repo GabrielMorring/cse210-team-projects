@@ -16,7 +16,7 @@ namespace Unit04.Game.Casting
 
         public void UpdateText(int score)
         {
-            SetText("$Score: {score}");
+            SetText($"Score: {score}");
         }
     }
 }
