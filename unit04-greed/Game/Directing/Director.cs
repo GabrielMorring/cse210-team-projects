@@ -60,11 +60,11 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
-            Actor banner = cast.GetFirstActor("banner");
+            Actor scoreBoard = cast.GetFirstActor("scoreBoard");
             Actor player = cast.GetFirstActor("player");
             List<Actor> artifacts = cast.GetActors("artifacts");
 
-            banner.SetText("");
+            scoreBoard.SetText("Score: ");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             player.MoveNext(maxX, maxY);
@@ -74,7 +74,7 @@ namespace Unit04.Game.Directing
                 if (player.GetPosition().Equals(actor.GetPosition()))
                 {
                     
-                    banner.SetText("String");
+                    scoreBoard.SetText("Score: ");
                 }
             } 
         }
