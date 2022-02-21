@@ -10,7 +10,7 @@ namespace Unit04.Game.Casting
       public Player(int max_x, int max_y)
       {
           SetText("#");
-          SetPosition(new Point(max_x/2, max_y));
+          SetPosition(new Point(max_x/2, max_y-15));
 
 
       }
