@@ -44,7 +44,9 @@ namespace Unit04
             cast.AddActor("banner", banner);
 
             // create the player
-            Player player = new Player(900,600);
+            Actor player = new Actor();
+            player.SetText("#");
+            player.SetPosition(new Point(MAX_X/2, MAX_Y-15));
             player.SetFontSize(FONT_SIZE);
             player.SetColor(WHITE);
             cast.AddActor("player", player);
