@@ -49,8 +49,7 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void GetInputs(Cast cast)
         {
-            //Actor player = cast.GetFirstActor("player");
-            Player player =  new Player(900,600);
+            Actor player = cast.GetFirstActor("player");
             Point velocity = keyboardService.GetDirection();
             player.SetVelocity(velocity);     
         }
