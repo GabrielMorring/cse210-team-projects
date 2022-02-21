@@ -73,9 +73,8 @@ namespace Unit04.Game.Directing
             {
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
-                    Artifact artifact = (Artifact) actor;
-                    string message = artifact.GetMessage();
-                    banner.SetText(message);
+                    
+                    banner.SetText("String");
                 }
             } 
         }
