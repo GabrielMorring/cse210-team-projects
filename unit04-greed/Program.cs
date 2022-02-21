@@ -47,7 +47,6 @@ namespace Unit04
             Player player = new Player(900,600);
             player.SetFontSize(FONT_SIZE);
             player.SetColor(WHITE);
-            player.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
             cast.AddActor("player", player);
 
 
