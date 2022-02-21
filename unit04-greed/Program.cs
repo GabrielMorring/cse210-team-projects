@@ -43,13 +43,12 @@ namespace Unit04
             banner.SetPosition(new Point(CELL_SIZE, 0));
             cast.AddActor("banner", banner);
 
-            // create the robot
-            Actor robot = new Actor();
-            robot.SetText("#");
-            robot.SetFontSize(FONT_SIZE);
-            robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
-            cast.AddActor("robot", robot);
+            // create the player
+            Player player = new Player(900,600);
+            player.SetFontSize(FONT_SIZE);
+            player.SetColor(WHITE);
+            player.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
+            cast.AddActor("player", player);
 
 
             // create the artifacts
