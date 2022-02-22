@@ -35,13 +35,13 @@ namespace Unit04
             // create the cast
             Cast cast = new Cast();
 
-            // create the scoreBoard
-            ScoreBoard scoreBoard = new ScoreBoard();
-            scoreBoard.SetText("Score: ");
-            scoreBoard.SetFontSize(FONT_SIZE + 5);
-            scoreBoard.SetColor(WHITE);
-            scoreBoard.SetPosition(new Point(10, 10));
-            cast.AddActor("scoreBoard", scoreBoard);
+            // create the banner
+            Actor banner = new Actor();
+            banner.SetText("");
+            banner.SetFontSize(FONT_SIZE);
+            banner.SetColor(WHITE);
+            banner.SetPosition(new Point(CELL_SIZE, 0));
+            cast.AddActor("banner", banner);
 
             // create the player
             Actor player = new Actor();
@@ -52,22 +52,13 @@ namespace Unit04
             cast.AddActor("player", player);
 
 
-            // create the artifacts
-            Random random = new Random();
-            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
-            {
-                
-
-                int x = random.Next(1, COLS);
-                int y = random.Next(1, ROWS);
-                Point position = new Point(x, y);
-                position = position.Scale(CELL_SIZE);
-
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
-                Color color = new Color(r, g, b);
-            }
+            // create the fallingObjects
+            FallingObject rock = new FallingObject();
+            rock.SetText("0");
+            rock.SetPosition(new Point(400, 500));
+            rock.SetFontSize(FONT_SIZE);
+            rock.SetColor(WHITE);
+            cast.AddActor("rock", rock);
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
