@@ -58,7 +58,11 @@ namespace Unit04
             rock.SetPosition(new Point(400, 500));
             rock.SetFontSize(FONT_SIZE);
             rock.SetColor(WHITE);
-            cast.AddActor("rock", rock);
+            cast.AddActor("fallingObject", rock);
+
+
+            ScoreBoard score = new ScoreBoard();
+            cast.AddActor("scoreBoard", score);
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);

@@ -15,6 +15,14 @@ namespace Unit04.Game.Casting
       SetVelocity(new Point(3,2));
        
     }
+
+
+    public void DoUpdates()
+    {
+      // 
+      SetPosition(GetPosition().Add(GetVelocity()));
+
+    }
   }
 }
 //comment

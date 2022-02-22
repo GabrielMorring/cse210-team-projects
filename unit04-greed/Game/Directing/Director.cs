@@ -63,21 +63,24 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
-            Actor scoreBoard = cast.GetFirstActor("scoreBoard");
+            ScoreBoard scoreBoard = (ScoreBoard)cast.GetFirstActor("scoreBoard");
             Actor player = cast.GetFirstActor("player");
-            List<Actor> artifacts = cast.GetActors("artifacts");
+            List<Actor> fallingObjects = cast.GetActors("fallingObject");
 
-            scoreBoard.SetText($"Score: ");
+        
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             player.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in artifacts)
+            foreach (FallingObject actor in fallingObjects)
             {
+                actor.DoUpdates();
+
+                
                 if (player.GetPosition().Equals(actor.GetPosition()))
                 {
                     
-                    scoreBoard.SetText($"Score: {_score}");
+                    scoreBoard.UpdateScore(-25);
                 }
             } 
         }
