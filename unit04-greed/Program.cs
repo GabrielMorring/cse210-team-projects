@@ -35,13 +35,13 @@ namespace Unit04
             // create the cast
             Cast cast = new Cast();
 
-            // create the banner
-            Actor banner = new Actor();
-            banner.SetText("");
-            banner.SetFontSize(FONT_SIZE);
-            banner.SetColor(WHITE);
-            banner.SetPosition(new Point(CELL_SIZE, 0));
-            cast.AddActor("banner", banner);
+            // create the scoreBoard
+            Actor scoreBoard = new Actor();
+            scoreBoard.SetText("");
+            scoreBoard.SetFontSize(FONT_SIZE);
+            scoreBoard.SetColor(WHITE);
+            scoreBoard.SetPosition(new Point(0,0));
+            cast.AddActor("scoreBoard", scoreBoard);
 
             // create the player
             Actor player = new Actor();

@@ -67,7 +67,7 @@ namespace Unit04.Game.Directing
             Actor player = cast.GetFirstActor("player");
             List<Actor> artifacts = cast.GetActors("artifacts");
 
-            scoreBoard.SetText($"Score: ");
+            scoreBoard.SetText($"Score: {_score}");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             player.MoveNext(maxX, maxY);
