@@ -11,8 +11,8 @@ namespace Unit04.Game.Casting
     
     public FallingObject()
     {
-      SetPosition(new Point(3,2));
-      SetVelocity(new Point(3,2));
+      SetPosition(new Point(0,2));
+      SetVelocity(new Point(0,2));
        
     }
 

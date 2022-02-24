@@ -61,9 +61,6 @@ namespace Unit04
             cast.AddActor("fallingObject", rock);
 
 
-            ScoreBoard score = new ScoreBoard();
-            cast.AddActor("scoreBoard", score);
-
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 
