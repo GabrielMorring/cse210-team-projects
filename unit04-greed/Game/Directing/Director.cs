@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unit04.Game.Casting;
 using Unit04.Game.Services;
+using System;
 
 
 namespace Unit04.Game.Directing
@@ -15,6 +16,7 @@ namespace Unit04.Game.Directing
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
+        private Random random = new Random();
 
         private int _score;
 
@@ -66,6 +68,17 @@ namespace Unit04.Game.Directing
             Actor scoreBoard = cast.GetFirstActor("scoreBoard");
             Actor player = cast.GetFirstActor("player");
             List<Actor> fallingObjects = cast.GetActors("fallingObject");
+
+            for (int i = 0; i < 5; i++)
+            {
+                // create the fallingObjects
+                FallingObject rock = new FallingObject();
+                rock.SetText("0");
+                rock.SetPosition(new Point( random.Next(0,900), 0));
+                rock.SetFontSize(15);
+                rock.SetColor(new Color(255, 255, 255));
+                cast.AddActor("fallingObject", rock);
+            }
 
             scoreBoard.SetText($"Score: {_score}");
             int maxX = videoService.GetWidth();
