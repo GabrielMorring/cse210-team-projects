@@ -63,7 +63,7 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
-            ScoreBoard scoreBoard = (ScoreBoard)cast.GetFirstActor("scoreBoard");
+            Actor scoreBoard = cast.GetFirstActor("scoreBoard");
             Actor player = cast.GetFirstActor("player");
             List<Actor> fallingObjects = cast.GetActors("fallingObject");
 
@@ -79,8 +79,7 @@ namespace Unit04.Game.Directing
                 
                 if (player.GetPosition().Equals(actor.GetPosition()))
                 {
-                    
-                    scoreBoard.UpdateScore(-25);
+                   _score += 100;
                 }
             } 
         }
