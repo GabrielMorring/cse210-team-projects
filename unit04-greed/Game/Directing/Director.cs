@@ -4,6 +4,8 @@ using Unit04.Game.Services;
 using System;
 
 
+
+
 namespace Unit04.Game.Directing
 {
     /// <summary>
@@ -69,10 +71,10 @@ namespace Unit04.Game.Directing
             Actor player = cast.GetFirstActor("player");
             List<Actor> fallingObjects = cast.GetActors("fallingObject");
             
-            if (random.Next(0, 50) == 1)
+            if (random.Next(0, 25) == 1)
             {
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     // create the fallingObjects
                     FallingObject rock = new FallingObject();
@@ -83,7 +85,7 @@ namespace Unit04.Game.Directing
                     cast.AddActor("fallingObject", rock);
                 }
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     // create the fallingObjects
                     FallingObject gem = new FallingObject();
@@ -97,14 +99,14 @@ namespace Unit04.Game.Directing
 
             foreach ( Actor actor in fallingObjects)
             {
-                if (player.GetPosition().GetX() - actor.GetPosition().GetX() < 5 && player.GetPosition().GetY() - actor.GetPosition().GetY() < 5)
+                if ((Math.Abs(player.GetPosition().GetX() - actor.GetPosition().GetX()) < 10) && (Math.Abs(player.GetPosition().GetY() - actor.GetPosition().GetY()) < 3))
                 {
 
                     if (actor.GetText() == "0")  
                     {
                         _score -= 100;
                     }
-                    else
+                    if (actor.GetText() == "*")  
                     {
                         _score += 100;    
                     }     
@@ -128,12 +130,6 @@ namespace Unit04.Game.Directing
             foreach (FallingObject actor in fallingObjects)
             {
                 actor.DoUpdates();
-
-                
-                if (player.GetPosition().Equals(actor.GetPosition()))
-                {
-                   _score += 100;
-                }
             } 
         }
 
