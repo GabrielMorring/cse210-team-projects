@@ -52,13 +52,13 @@ namespace Unit04
             cast.AddActor("player", player);
 
 
-            // create the fallingObjects
-            FallingObject rock = new FallingObject();
-            rock.SetText("0");
-            rock.SetPosition(new Point(400, 500));
-            rock.SetFontSize(FONT_SIZE);
-            rock.SetColor(WHITE);
-            cast.AddActor("fallingObject", rock);
+            // // create the fallingObjects
+            // FallingObject rock = new FallingObject();
+            // rock.SetText("0");
+            // rock.SetPosition(new Point(400, 500));
+            // rock.SetFontSize(FONT_SIZE);
+            // rock.SetColor(WHITE);
+            // cast.AddActor("fallingObject", rock);
 
 
             // start the game

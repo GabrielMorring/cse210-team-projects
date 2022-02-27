@@ -86,14 +86,35 @@ namespace Unit04.Game.Directing
                 for (int i = 0; i < 3; i++)
                 {
                     // create the fallingObjects
-                    FallingObject rock = new FallingObject();
-                    rock.SetText("*");
-                    rock.SetPosition(new Point( random.Next(0,900), 0));
-                    rock.SetFontSize(15);
-                    rock.SetColor(new Color(random.Next(0,255), random.Next(0,255), random.Next(0,255)));
-                    cast.AddActor("fallingObject", rock);
+                    FallingObject gem = new FallingObject();
+                    gem.SetText("*");
+                    gem.SetPosition(new Point( random.Next(0,900), 0));
+                    gem.SetFontSize(15);
+                    gem.SetColor(new Color(random.Next(0,255), random.Next(0,255), random.Next(0,255)));
+                    cast.AddActor("fallingObject", gem);
                 }
             }
+
+            foreach ( Actor actor in fallingObjects)
+            {
+                if (player.GetPosition().GetX() - actor.GetPosition().GetX() < 5 && player.GetPosition().GetY() - actor.GetPosition().GetY() < 5)
+                {
+
+                    if (actor.GetText() == "0")  
+                    {
+                        _score -= 100;
+                    }
+                    else
+                    {
+                        _score += 100;    
+                    }     
+
+
+
+                }
+            }
+
+
                 
 
 
