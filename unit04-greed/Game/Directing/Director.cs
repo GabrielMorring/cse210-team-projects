@@ -68,17 +68,36 @@ namespace Unit04.Game.Directing
             Actor scoreBoard = cast.GetFirstActor("scoreBoard");
             Actor player = cast.GetFirstActor("player");
             List<Actor> fallingObjects = cast.GetActors("fallingObject");
-
-            for (int i = 0; i < 5; i++)
+            
+            if (random.Next(0, 50) == 1)
             {
-                // create the fallingObjects
-                FallingObject rock = new FallingObject();
-                rock.SetText("0");
-                rock.SetPosition(new Point( random.Next(0,900), 0));
-                rock.SetFontSize(15);
-                rock.SetColor(new Color(255, 255, 255));
-                cast.AddActor("fallingObject", rock);
+
+                for (int i = 0; i < 3; i++)
+                {
+                    // create the fallingObjects
+                    FallingObject rock = new FallingObject();
+                    rock.SetText("0");
+                    rock.SetPosition(new Point( random.Next(0,900), 0));
+                    rock.SetFontSize(15);
+                    rock.SetColor(new Color(random.Next(0,255), random.Next(0,255), random.Next(0,255)));
+                    cast.AddActor("fallingObject", rock);
+                }
+
+                for (int i = 0; i < 3; i++)
+                {
+                    // create the fallingObjects
+                    FallingObject rock = new FallingObject();
+                    rock.SetText("*");
+                    rock.SetPosition(new Point( random.Next(0,900), 0));
+                    rock.SetFontSize(15);
+                    rock.SetColor(new Color(random.Next(0,255), random.Next(0,255), random.Next(0,255)));
+                    cast.AddActor("fallingObject", rock);
+                }
             }
+                
+
+
+
 
             scoreBoard.SetText($"Score: {_score}");
             int maxX = videoService.GetWidth();
