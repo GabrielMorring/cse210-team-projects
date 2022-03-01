@@ -99,7 +99,7 @@ namespace Unit04.Game.Directing
 
             foreach ( Actor actor in fallingObjects)
             {
-                if ((Math.Abs(player.GetPosition().GetX() - actor.GetPosition().GetX()) < 10) && (Math.Abs(player.GetPosition().GetY() - actor.GetPosition().GetY()) < 3))
+                if ((Math.Abs(player.GetPosition().GetX() - actor.GetPosition().GetX()) < 10) && (Math.Abs(player.GetPosition().GetY() - actor.GetPosition().GetY()) < 10))
                 {
 
                     if (actor.GetText() == "0")  
