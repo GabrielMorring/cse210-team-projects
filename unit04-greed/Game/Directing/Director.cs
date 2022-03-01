@@ -105,10 +105,12 @@ namespace Unit04.Game.Directing
                     if (actor.GetText() == "0")  
                     {
                         _score -= 100;
+                        actor.SetColor(new Color(0,0,0));
                     }
                     if (actor.GetText() == "*")  
                     {
-                        _score += 100;    
+                        _score += 100;
+                        actor.SetColor(new Color(0,0,0));    
                     }     
 
 
