@@ -40,13 +40,14 @@ namespace Unit05.Game.Scripting
         /// Sets the game over flag if the cycler collides with one of its segments.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
-        private void HandleSegmentCollisions(Cast cast)
+        private async void HandleSegmentCollisions(Cast cast)
         {
             List<Actor> players = cast.GetActors("cycler");
+            List<Actor> scores = cast.GetActors("score");
 
-            foreach (Actor player in players)
+            for ( int i = 0; i < players.Count; i++)
             {
-                Cycler cycler = (Cycler)player;
+                Cycler cycler = (Cycler)players[i];
                 Actor head = cycler.GetHead();
                 List<Actor> body = cycler.GetBody();
 
@@ -54,6 +55,16 @@ namespace Unit05.Game.Scripting
                 {
                     if (segment.GetPosition().Equals(head.GetPosition()))
                     {
+                        if (i == 0)
+                        {
+                            Score score = (Score)scores[0];
+                            score.AddPoints(1);
+                        }
+                        if (i == 1)
+                        {
+                            Score score = (Score)scores[1];
+                            score.AddPoints(1);
+                        }
                         isGameOver = true;
                     }
                 }
@@ -67,6 +78,7 @@ namespace Unit05.Game.Scripting
         private void HandlePlayerCollisions(Cast cast)
         {
             List<Actor> players = cast.GetActors("cycler");
+            List<Actor> scores = cast.GetActors("score");
 
             Cycler p1 = (Cycler) players[0];
             Cycler p2 = (Cycler) players[1];
@@ -76,6 +88,9 @@ namespace Unit05.Game.Scripting
 
             Actor p2Head = p2.GetHead();
             List<Actor> p2Body = p2.GetBody();
+
+            Score p1Score = (Score)scores[1];
+            Score p2Score = (Score)scores[0];
 
             // if heads colide
             if (p1Head.GetPosition().Equals(p2Head.GetPosition()))
@@ -88,6 +103,7 @@ namespace Unit05.Game.Scripting
             {
                 if (segment.GetPosition().Equals(p2Head.GetPosition()))
                 {
+                    p1Score.AddPoints(1);
                     isGameOver = true;
                 }
             }
@@ -97,6 +113,7 @@ namespace Unit05.Game.Scripting
             {
                 if (segment.GetPosition().Equals(p1Head.GetPosition()))
                 {
+                    p2Score.AddPoints(1);
                     isGameOver = true;
                 }
             }
@@ -117,7 +134,9 @@ namespace Unit05.Game.Scripting
                 message.SetColor(Constants.RED);
                 message.SetText("Game Over!");
                 message.SetPosition(position);
+                message.SetFontSize(25);
                 cast.AddActor("messages", message);
+
 
                 foreach (Actor player in players)
                 {
