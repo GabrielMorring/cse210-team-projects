@@ -80,6 +80,24 @@ namespace Unit05.Game.Casting
             {
                 if (actors[group].Count > 0)
                 {
+                    result = actors[group][actors[group].Count-1];
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Gets the last actor in the given group.
+        /// </summary>
+        /// <param name="group">The group name.</param>
+        /// <returns>The last actor.</returns>
+        public Actor GetLastActor(string group)
+        {
+            Actor result = null;
+            if (actors.ContainsKey(group))
+            {
+                if (actors[group].Count > 0)
+                {
                     result = actors[group][0];
                 }
             }
