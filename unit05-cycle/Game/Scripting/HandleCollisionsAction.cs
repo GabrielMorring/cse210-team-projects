@@ -31,6 +31,7 @@ namespace Unit05.Game.Scripting
             if (isGameOver == false)
             {
                 HandleSegmentCollisions(cast);
+                HandlePlayerCollisions(cast);
                 HandleGameOver(cast);
             }
         }
@@ -59,6 +60,48 @@ namespace Unit05.Game.Scripting
             }
         }
 
+        /// <summary>
+        /// Sets the game over flag if a cycler collides with another cycler.
+        /// </summary>
+        /// <param name="cast">The cast of actors.</param>
+        private void HandlePlayerCollisions(Cast cast)
+        {
+            List<Actor> players = cast.GetActors("cycler");
+
+            Cycler p1 = (Cycler) players[0];
+            Cycler p2 = (Cycler) players[1];
+
+            Actor p1Head = p1.GetHead();
+            List<Actor> p1Body = p1.GetBody();
+
+            Actor p2Head = p2.GetHead();
+            List<Actor> p2Body = p2.GetBody();
+
+            // if heads colide
+            if (p1Head.GetPosition().Equals(p2Head.GetPosition()))
+            {
+                isGameOver = true;
+            }
+
+            //if player2 colides with player1
+            foreach (Actor segment in p1Body)
+            {
+                if (segment.GetPosition().Equals(p2Head.GetPosition()))
+                {
+                    isGameOver = true;
+                }
+            }
+
+            //if player1 colides with player2
+            foreach (Actor segment in p2Body)
+            {
+                if (segment.GetPosition().Equals(p1Head.GetPosition()))
+                {
+                    isGameOver = true;
+                }
+            }
+        }
+
         private void HandleGameOver(Cast cast)
         {
             if (isGameOver == true)
@@ -71,6 +114,7 @@ namespace Unit05.Game.Scripting
                 Point position = new Point(x, y);
 
                 Actor message = new Actor();
+                message.SetColor(Constants.RED);
                 message.SetText("Game Over!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
