@@ -12,12 +12,18 @@ namespace Unit05.Game.Casting
     {
         private List<Actor> segments = new List<Actor>();
         private bool isGameOver = false;
+        private int x = Constants.MAX_X / 2;
+        private int y = Constants.MAX_Y / 2;
+        private Color _color;
 
         /// <summary>
         /// Constructs a new instance of a Cycler.
         /// </summary>
-        public Cycler()
+        public Cycler(int x, int y, Color color)
         {
+            this.x = x;
+            this.y = y;
+            _color = color;
             PrepareBody();
         }
 
@@ -82,7 +88,7 @@ namespace Unit05.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
+                segment.SetColor(_color);
                 segments.Add(segment);
 
                 if (isGameOver)
@@ -124,15 +130,12 @@ namespace Unit05.Game.Casting
         /// </summary>
         private void PrepareBody()
         {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
-
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
                 Point position = new Point(x - i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
                 string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                Color color = i == 0 ? Constants.YELLOW : _color;
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);

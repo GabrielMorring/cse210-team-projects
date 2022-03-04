@@ -2,6 +2,11 @@
 using Unit05.Game.Directing;
 using Unit05.Game.Scripting;
 using Unit05.Game.Services;
+using Unit05.Game;
+using System;
+using System.Collections.Generic;
+
+
 
 
 namespace unit05_cycle
@@ -19,7 +24,12 @@ namespace unit05_cycle
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("cycler", new Cycler());
+
+            Cycler player1 = new Cycler((int)(Constants.MAX_X * .3), Constants.MAX_Y / 2, Constants.Green);
+            Cycler player2 = new Cycler((int)(Constants.MAX_X * .6), Constants.MAX_Y / 2, Constants.BLUE);
+
+            cast.AddActor("cycler", player1);
+            cast.AddActor("cycler", player2);
             cast.AddActor("score", new Score());
 
             // create the services
