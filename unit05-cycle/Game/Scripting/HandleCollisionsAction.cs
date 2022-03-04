@@ -43,6 +43,7 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             List<Actor> players = cast.GetActors("cycler");
+            List<Actor> scores = cast.GetActors("score");
 
             foreach (Actor player in players)
             {
@@ -54,6 +55,7 @@ namespace Unit05.Game.Scripting
                 {
                     if (segment.GetPosition().Equals(head.GetPosition()))
                     {
+                        
                         isGameOver = true;
                     }
                 }

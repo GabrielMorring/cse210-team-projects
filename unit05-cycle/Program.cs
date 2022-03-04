@@ -37,9 +37,9 @@ namespace unit05_cycle
             
             cast.AddActor("cycler", player2);
             cast.AddActor("cycler", player1);
-            cast.AddActor("score", score1);
+            
             cast.AddActor("score", score2);
-
+            cast.AddActor("score", score1);
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
