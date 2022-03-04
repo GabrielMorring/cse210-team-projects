@@ -50,9 +50,35 @@ namespace Unit05.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Cycler cycler = (Cycler)cast.GetFirstActor("cycler");
-            cycler.TurnHead(direction);
+            Cycler player1 = (Cycler)cast.GetFirstActor("cycler");
+            player1.TurnHead(direction);
 
+            // left
+            if (keyboardService.IsKeyDown("j"))
+            {
+                direction = new Point(-Constants.CELL_SIZE, 0);
+            }
+
+            // right
+            if (keyboardService.IsKeyDown("l"))
+            {
+                direction = new Point(Constants.CELL_SIZE, 0);
+            }
+
+            // up
+            if (keyboardService.IsKeyDown("i"))
+            {
+                direction = new Point(0, -Constants.CELL_SIZE);
+            }
+
+            // down
+            if (keyboardService.IsKeyDown("k"))
+            {
+                direction = new Point(0, Constants.CELL_SIZE);
+            }
+            
+            Cycler player2 = (Cycler)cast.GetLastActor("cycler");
+            player2.TurnHead(direction);
         }
     }
 }
