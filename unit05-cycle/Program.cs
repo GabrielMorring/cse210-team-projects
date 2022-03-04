@@ -28,9 +28,18 @@ namespace unit05_cycle
             Cycler player1 = new Cycler((int)(Constants.MAX_X / 3), Constants.MAX_Y / 2, Constants.GREEN);
             Cycler player2 = new Cycler((int)(Constants.MAX_X / 1.5), Constants.MAX_Y / 2, Constants.BLUE);
             
+            Score score1 = new Score("Player One");
+            score1.SetPosition(new Point(0,0));
+
+            Score score2 = new Score("Player Two");
+            score2.SetPosition(new Point(Constants.MAX_X - 140, 0));
+            
+            
             cast.AddActor("cycler", player2);
             cast.AddActor("cycler", player1);
-            cast.AddActor("score", new Score());
+            cast.AddActor("score", score1);
+            cast.AddActor("score", score2);
+
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

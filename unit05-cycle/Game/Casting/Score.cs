@@ -12,15 +12,21 @@ namespace Unit05.Game.Casting
     public class Score : Actor
     {
         private int points = 0;
+        private string playerText = "";
 
         /// <summary>
         /// Constructs a new instance of an Food.
         /// </summary>
-        public Score()
+        public Score(string player)
         {
+            playerText = player;
             AddPoints(0);
         }
 
+        public string GetPlayerText()
+        {
+            return playerText;
+        }
         /// <summary>
         /// Adds the given points to the score.
         /// </summary>
@@ -28,7 +34,12 @@ namespace Unit05.Game.Casting
         public void AddPoints(int points)
         {
             this.points += points;
-            SetText($"Score: {this.points}");
+            SetText($"{GetPlayerText()} : {this.points}");
+        }
+
+        public void SetPlayerText(string text)
+        {
+            playerText = text;
         }
     }
 }
