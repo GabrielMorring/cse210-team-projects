@@ -25,11 +25,11 @@ namespace unit05_cycle
             // create the cast
             Cast cast = new Cast();
 
-            Cycler player1 = new Cycler(200, Constants.MAX_Y / 2, Constants.GREEN);
+            Cycler player1 = new Cycler((int)(Constants.MAX_X / 3), Constants.MAX_Y / 2, Constants.GREEN);
             Cycler player2 = new Cycler((int)(Constants.MAX_X / 1.5), Constants.MAX_Y / 2, Constants.BLUE);
-
-            cast.AddActor("cycler", player1);
+            
             cast.AddActor("cycler", player2);
+            cast.AddActor("cycler", player1);
             cast.AddActor("score", new Score());
 
             // create the services

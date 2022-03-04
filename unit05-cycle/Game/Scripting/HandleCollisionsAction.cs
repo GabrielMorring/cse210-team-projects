@@ -41,15 +41,20 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Cycler cycler = (Cycler)cast.GetFirstActor("cycler");
-            Actor head = cycler.GetHead();
-            List<Actor> body = cycler.GetBody();
+            List<Actor> players = cast.GetActors("cycler");
 
-            foreach (Actor segment in body)
+            foreach (Actor player in players)
             {
-                if (segment.GetPosition().Equals(head.GetPosition()))
+                Cycler cycler = (Cycler)player;
+                Actor head = cycler.GetHead();
+                List<Actor> body = cycler.GetBody();
+
+                foreach (Actor segment in body)
                 {
-                    isGameOver = true;
+                    if (segment.GetPosition().Equals(head.GetPosition()))
+                    {
+                        isGameOver = true;
+                    }
                 }
             }
         }
@@ -58,8 +63,7 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
-                Cycler cycler = (Cycler)cast.GetFirstActor("cycler");
-                List<Actor> segments = cycler.GetSegments();
+                List<Actor> players = cast.GetActors("cycler");
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -71,14 +75,18 @@ namespace Unit05.Game.Scripting
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
 
-                // make everything white
-                foreach (Actor segment in segments)
+                foreach (Actor player in players)
                 {
-                    segment.SetColor(Constants.WHITE);
+                    Cycler cycler = (Cycler)player;
+                    List<Actor> segments = cycler.GetSegments();
+
+                    foreach (Actor segment in segments)
+                    {
+                        segment.SetColor(Constants.WHITE);
+                    }
+                    cycler.SetIsGameOver(true);
                 }
-                cycler.SetIsGameOver(true);
             }
         }
-
     }
 }
