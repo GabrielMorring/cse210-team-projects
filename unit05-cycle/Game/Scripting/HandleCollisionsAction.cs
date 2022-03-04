@@ -10,8 +10,8 @@ namespace Unit05.Game.Scripting
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
     /// <para>
-    /// The responsibility of HandleCollisionsAction is to handle the situation when the snake 
-    /// collides with the food, or the snake collides with its segments, or the game is over.
+    /// The responsibility of HandleCollisionsAction is to handle the situation when the cycler 
+    /// collides with the food, or the cycler collides with its segments, or the game is over.
     /// </para>
     /// </summary>
     public class HandleCollisionsAction : Action
@@ -36,14 +36,14 @@ namespace Unit05.Game.Scripting
         }
 
         /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if the cycler collides with one of its segments.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Actor head = snake.GetHead();
-            List<Actor> body = snake.GetBody();
+            Cycler cycler = (Cycler)cast.GetFirstActor("cycler");
+            Actor head = cycler.GetHead();
+            List<Actor> body = cycler.GetBody();
 
             foreach (Actor segment in body)
             {
@@ -58,8 +58,8 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
-                List<Actor> segments = snake.GetSegments();
+                Cycler cycler = (Cycler)cast.GetFirstActor("cycler");
+                List<Actor> segments = cycler.GetSegments();
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -76,6 +76,7 @@ namespace Unit05.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+                cycler.SetIsGameOver(true);
             }
         }
 
