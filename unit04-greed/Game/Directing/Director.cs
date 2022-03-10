@@ -99,19 +99,20 @@ namespace Unit04.Game.Directing
 
             foreach ( Actor actor in fallingObjects)
             {
-                if ((Math.Abs(player.GetPosition().GetX() - actor.GetPosition().GetX()) < 10) && (Math.Abs(player.GetPosition().GetY() - actor.GetPosition().GetY()) < 10))
+                if ((Math.Abs(player.GetPosition().GetX() - actor.GetPosition().GetX()) < 5) && (Math.Abs(player.GetPosition().GetY() - actor.GetPosition().GetY()) < 5))
                 {
 
                     if (actor.GetText() == "0")  
                     {
                         _score -= 100;
-                        actor.SetColor(new Color(0,0,0));
+
                     }
+                    
                     if (actor.GetText() == "*")  
                     {
                         _score += 100;
-                        actor.SetColor(new Color(0,0,0));    
-                    }     
+                    }  
+                    cast.RemoveActor("fallingObjects", actor);   
 
 
 
