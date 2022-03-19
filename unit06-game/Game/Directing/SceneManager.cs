@@ -66,11 +66,6 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivatePlayer(Cast cast)
-        {
-            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
-            player.Release();
-        }
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
@@ -104,14 +99,18 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivatePlayer(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
 
-            ControlPlayerAction action = new ControlPlayerAction(KeyboardService);
-            script.AddAction(Constants.INPUT, action);
+            ControlPlayer1Action action1 = new ControlPlayer1Action(KeyboardService);
+            ControlPlayer2Action action2 = new ControlPlayer2Action(KeyboardService);
 
+            script.AddAction(Constants.INPUT, action1);
+            AddUpdateActions(script);    
+            AddOutputActions(script); 
+
+            script.AddAction(Constants.INPUT, action2);
             AddUpdateActions(script);    
             AddOutputActions(script);
         
@@ -138,7 +137,7 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.PLAYER_GROUP);
         
-            int x = Constants.PLAYER_WIDTH;
+            int x = Constants.PLAYER_WIDTH * 3;
             int y = (int)Constants.SCREEN_HEIGHT / 3;
         
             Point position = new Point(x, y);

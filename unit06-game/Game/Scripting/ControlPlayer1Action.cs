@@ -4,11 +4,11 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class ControlPlayerAction : Action
+    public class ControlPlayer1Action : Action
     {
         private KeyboardService keyboardService;
 
-        public ControlPlayerAction(KeyboardService keyboardService)
+        public ControlPlayer1Action(KeyboardService keyboardService)
         {
             this.keyboardService = keyboardService;
         }
@@ -18,15 +18,23 @@ namespace Unit06.Game.Scripting
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             if (keyboardService.IsKeyDown(Constants.LEFT))
             {
-                // player.SwingLeft();
+                player.MoveLeft();
             }
             else if (keyboardService.IsKeyDown(Constants.RIGHT))
             {
-                // player.SwingRight();
+                player.MoveRight();
+            }
+            else if (keyboardService.IsKeyDown(Constants.UP))
+            {
+                player.MoveUp();
+            }
+            else if (keyboardService.IsKeyDown(Constants.DOWN))
+            {
+                player.MoveDown();
             }
             else
             {
-                // player.StopMoving();
+                player.StopMoving();
             }
         }
     }

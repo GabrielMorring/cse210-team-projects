@@ -22,32 +22,6 @@ namespace Unit06.Game.Casting
             this.body = body;
             this.image = image;
         }
-
-        /// <summary>
-        /// Bounces the ball horizontally.
-        /// </summary>
-        public void BounceX()
-        {
-            Point velocity = body.GetVelocity();
-            double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
-            double vx = velocity.GetX() * -1;
-            double vy = velocity.GetY();
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
-        }
-
-        /// <summary>
-        /// Bounces the ball vertically.
-        /// </summary>
-        public void BounceY()
-        {
-            Point velocity = body.GetVelocity();
-            double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
-            double vx = velocity.GetX();
-            double vy = velocity.GetY() * -1;
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
-        }
         
         /// <summary>
         /// Gets the body.
@@ -67,18 +41,53 @@ namespace Unit06.Game.Casting
             return image;
         }
 
-        /// <summary>
-        /// Releases ball in random horizontal direction.
-        /// </summary>
-        public void Release()
+        public void MoveNext()
         {
+            Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
-            List<int> velocities = new List<int> {Constants.PLAYER_VELOCITY, Constants.PLAYER_VELOCITY};
-            int index = random.Next(velocities.Count);
-            double vx = velocities[index];
-            double vy = -Constants.PLAYER_VELOCITY;
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
+            Point newPosition = position.Add(velocity);
+            body.SetPosition(newPosition);
         }
+
+        /// <summary>
+        /// </summary>
+        public void MoveLeft()
+        {
+            Point velocity = new Point(-Constants.PLAYER_VELOCITY, 0);
+            body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// </summary>
+        public void MoveRight()
+        {
+            Point velocity = new Point(Constants.PLAYER_VELOCITY, 0);
+            body.SetVelocity(velocity);
+        }
+        
+        public void MoveUp()
+        {
+            Point velocity = new Point(0, -Constants.PLAYER_VELOCITY);
+            body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Swings the racket to the right.
+        /// </summary>
+        public void MoveDown()
+        {
+            Point velocity = new Point(0, Constants.PLAYER_VELOCITY);
+            body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Stops the racket from moving.
+        /// </summary>
+        public void StopMoving()
+        {
+            Point velocity = new Point(0, 0);
+            body.SetVelocity(velocity);
+        }
+        
     }
 }

@@ -15,8 +15,10 @@ namespace Unit06.Game.Scripting
             this.audioService = audioService;
         }
 
+        
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
+            /*
             Player ball = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Body body = ball.GetBody();
             Point position = body.GetPosition();
@@ -56,6 +58,8 @@ namespace Unit06.Game.Scripting
                     audioService.PlaySound(overSound);
                 }
             }
+            */
         }
+        
     }
 }
