@@ -149,11 +149,11 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.PLAYER1_IMAGE);
-            Player player1 = new Player(body, image, false);
+            Player player1 = new Player(body, image, 1, false);
             
             Body body2 = new Body(position2, size, velocity);
             Image image2 = new Image(Constants.PLAYER2_IMAGE);
-            Player player2 = new Player(body2, image2, false);
+            Player player2 = new Player(body2, image2, 2, false);
             
             cast.AddActor(Constants.PLAYER_GROUP, player1);        
             cast.AddActor(Constants.PLAYER_GROUP, player2);

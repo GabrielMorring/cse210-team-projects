@@ -13,20 +13,35 @@ namespace Unit06.Game.Casting
 
         private Body body;
         private Image image;
+        private int playerNum;
 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Player(Body body, Image image, bool debug = false) : base(debug)
+        public Player(Body body, Image image, int playerNum, bool debug = false) : base(debug)
         {
             this.body = body;
             this.image = image;
+            this.playerNum = playerNum;
         }
         
         /// <summary>
         /// Gets the body.
         /// </summary>
         /// <returns>The body.</returns>
+        public int GetPlayerNum()
+        {
+            return playerNum;
+        }
+
+        public void SetPlayerNum(int num)
+        {
+            playerNum = num;
+        }
+        
+        
+        
+        
         public Body GetBody()
         {
             return body;

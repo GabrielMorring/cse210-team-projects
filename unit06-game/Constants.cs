@@ -125,6 +125,10 @@ namespace Unit06
         public static string ENTER_TO_START = "PRESS ENTER TO START";
         public static string PREP_TO_LAUNCH = "READY SET GO!";
         public static string WAS_GOOD_GAME = "GAME OVER";
+        public static string PLAYER_ONE_WINS = "PLAYER ONE WINS";
+        public static string PLAYER_TWO_WINS = "PLAYER TWO WINS";
+
+
 
     }
 }
