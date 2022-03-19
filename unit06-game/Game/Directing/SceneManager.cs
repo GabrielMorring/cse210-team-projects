@@ -68,7 +68,7 @@ namespace Unit06.Game.Directing
 
         private void ActivatePlayer(Cast cast)
         {
-            Player player = (Player)cast.GetFirstActor(Constants.BALL_GROUP);
+            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             player.Release();
         }
 
@@ -136,15 +136,15 @@ namespace Unit06.Game.Directing
 
         private void AddPlayers(Cast cast)
         {
-            cast.ClearActors(Constants.BALL_GROUP);
+            cast.ClearActors(Constants.PLAYER_GROUP);
         
-            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+            int x = Constants.PLAYER_WIDTH;
+            int y = (int)Constants.SCREEN_HEIGHT / 3;
         
             Point position = new Point(x, y);
-            Point position2 = new Point(x + 10, y);
+            Point position2 = new Point(x, (int)(y * 1.5));
 
-            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
+            Point size = new Point(Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
             Point velocity = new Point(0, 0);
         
             Body body = new Body(position, size, velocity);
@@ -155,8 +155,8 @@ namespace Unit06.Game.Directing
             Image image2 = new Image(Constants.PLAYER2_IMAGE);
             Player player2 = new Player(body2, image2, false);
             
-            cast.AddActor(Constants.BALL_GROUP, player1);        
-            cast.AddActor(Constants.BALL_GROUP, player2);
+            cast.AddActor(Constants.PLAYER_GROUP, player1);        
+            cast.AddActor(Constants.PLAYER_GROUP, player2);
         }
 
      

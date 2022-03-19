@@ -17,7 +17,7 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Player ball = (Player)cast.GetFirstActor(Constants.BALL_GROUP);
+            Player ball = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Body body = ball.GetBody();
             Point position = body.GetPosition();
             int x = position.GetX();
@@ -30,7 +30,7 @@ namespace Unit06.Game.Scripting
                 ball.BounceX();
                 audioService.PlaySound(bounceSound);
             }
-            else if (x >= Constants.FIELD_RIGHT - Constants.BALL_WIDTH)
+            else if (x >= Constants.FIELD_RIGHT - Constants.PLAYER_WIDTH)
             {
                 ball.BounceX();
                 audioService.PlaySound(bounceSound);
@@ -41,7 +41,7 @@ namespace Unit06.Game.Scripting
                 ball.BounceY();
                 audioService.PlaySound(bounceSound);
             }
-            else if (y >= Constants.FIELD_BOTTOM - Constants.BALL_WIDTH)
+            else if (y >= Constants.FIELD_BOTTOM - Constants.PLAYER_WIDTH)
             {
                 Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                 stats.RemoveLife();

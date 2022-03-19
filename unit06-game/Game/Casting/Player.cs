@@ -73,10 +73,10 @@ namespace Unit06.Game.Casting
         public void Release()
         {
             Point velocity = body.GetVelocity();
-            List<int> velocities = new List<int> {Constants.BALL_VELOCITY, Constants.BALL_VELOCITY};
+            List<int> velocities = new List<int> {Constants.PLAYER_VELOCITY, Constants.PLAYER_VELOCITY};
             int index = random.Next(velocities.Count);
             double vx = velocities[index];
-            double vy = -Constants.BALL_VELOCITY;
+            double vy = -Constants.PLAYER_VELOCITY;
             Point newVelocity = new Point((int)vx, (int)vy);
             body.SetVelocity(newVelocity);
         }

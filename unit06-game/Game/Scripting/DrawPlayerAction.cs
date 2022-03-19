@@ -16,7 +16,7 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             
-            foreach(Actor actor in cast.GetActors(Constants.BALL_GROUP))
+            foreach(Actor actor in cast.GetActors(Constants.PLAYER_GROUP))
             {
                 Player player = (Player)actor;
                 Body body = player.GetBody();

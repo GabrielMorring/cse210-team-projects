@@ -95,13 +95,13 @@ namespace Unit06
         public static string LIVES_FORMAT = "LIVES: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
 
-        // BALL
-        public static string BALL_GROUP = "balls";
+        // PLAYER
+        public static string PLAYER_GROUP = "players";
         public static string PLAYER1_IMAGE = "Assets/Images/p1.png";
         public static string PLAYER2_IMAGE = "Assets/Images/p2.png";
-        public static int BALL_WIDTH = 28;
-        public static int BALL_HEIGHT = 28;
-        public static int BALL_VELOCITY = 6;
+        public static int PLAYER_WIDTH = 5;
+        public static int PLAYER_HEIGHT = 5;
+        public static int PLAYER_VELOCITY = 6;
 
         // RACKET
         public static string RACKET_GROUP = "rackets";
