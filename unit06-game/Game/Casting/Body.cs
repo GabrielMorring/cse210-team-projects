@@ -29,15 +29,6 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
-        /// Gets a rectangle enclosing this body.
-        /// </summary>
-        /// <returns>The enclosing rectangle.</returns>
-        public Rectangle GetRectangle()
-        {
-            return new Rectangle(position, size);
-        }
-
-        /// <summary>
         /// Gets the size.
         /// </summary>
         /// <returns>The size.</returns>
