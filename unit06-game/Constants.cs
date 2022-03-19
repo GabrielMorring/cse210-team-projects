@@ -115,7 +115,7 @@ namespace Unit06
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "PREPARING TO LAUNCH";
+        public static string PREP_TO_LAUNCH = "READY SET GO!";
         public static string WAS_GOOD_GAME = "GAME OVER";
 
     }
