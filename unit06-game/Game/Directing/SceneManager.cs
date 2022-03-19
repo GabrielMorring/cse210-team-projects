@@ -52,6 +52,7 @@ namespace Unit06.Game.Directing
             AddScore(cast);
             AddLives(cast);
             AddPlayers(cast);
+            AddFinishLine(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -158,6 +159,27 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.PLAYER_GROUP, player2);
         }
 
+        private void AddFinishLine(Cast cast)
+        {
+            cast.ClearActors(Constants.FINISH_LINE_GROUP);
+        
+            int x = Constants.SCREEN_WIDTH - 100;
+            int y = 50;
+        
+            Point position = new Point(x, y);
+
+            Point size = new Point(Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
+            Point velocity = new Point(0, 0);
+        
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.FINISH_LINE_IMAGE);
+            FinishLine finishLine = new FinishLine(body, image, false);
+            
+            
+            
+            cast.AddActor(Constants.FINISH_LINE_GROUP, finishLine);        
+        }
+
      
 
         private void AddDialog(Cast cast, string message)
@@ -253,6 +275,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawFinishLineAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }

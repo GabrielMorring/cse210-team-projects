@@ -111,6 +111,14 @@ namespace Unit06
         public static int PLAYER_HEIGHT = 25;
         public static int PLAYER_VELOCITY = 6;
 
+        // FINISH LINE
+        public static string FINISH_LINE_GROUP = "finishLine";
+        public static string FINISH_LINE_IMAGE = "Assets/Images/finishLine.png";
+        public static int FINISH_LINE_WIDTH = 25;
+        public static int FINISH_LINE_HEIGHT = 25;
+        public static int FINISH_LINE_VELOCITY = 6;
+
+
        
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
