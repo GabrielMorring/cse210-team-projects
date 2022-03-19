@@ -13,13 +13,20 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            // List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
-            // if (bricks.Count == 0)
-            // {
-            //     Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-            //     stats.AddLevel();
-            //     callback.OnNext(Constants.NEXT_LEVEL);
-            // }
+            foreach(Player player in cast.GetActors(Constants.PLAYER_GROUP))
+            {
+                Body body = player.GetBody();
+                
+                FinishLine finish = (FinishLine)cast.GetFirstActor(Constants.FINISH_LINE_GROUP);
+                Body finishBody = finish.GetBody();
+
+                if (body.GetPosition().GetX() >= finishBody.GetPosition().GetX() - Constants.PLAYER_WIDTH)
+                {
+                    Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+                    stats.AddLevel();
+                    callback.OnNext(Constants.NEXT_LEVEL);
+                }
+            }    
         }
     }
 }
