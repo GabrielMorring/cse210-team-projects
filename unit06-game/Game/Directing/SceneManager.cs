@@ -51,7 +51,7 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddBall(cast);
+            AddPlayers(cast);
             AddBricks(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
@@ -68,15 +68,15 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateBall(Cast cast)
+        private void ActivatePlayer(Cast cast)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
+            Player player = (Player)cast.GetFirstActor(Constants.BALL_GROUP);
+            player.Release();
         }
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
-            AddBall(cast);
+            AddPlayers(cast);
             AddBricks(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
@@ -94,7 +94,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
-            AddBall(cast);
+            AddPlayers(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -109,7 +109,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivateBall(cast);
+            ActivatePlayer(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
@@ -124,7 +124,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddBall(cast);
+            AddPlayers(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
@@ -140,7 +140,7 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
-        private void AddBall(Cast cast)
+        private void AddPlayers(Cast cast)
         {
             cast.ClearActors(Constants.BALL_GROUP);
         
@@ -148,14 +148,21 @@ namespace Unit06.Game.Directing
             int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
         
             Point position = new Point(x, y);
+            Point position2 = new Point(x + 10, y);
+
             Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
             Point velocity = new Point(0, 0);
         
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.BALL_IMAGE);
-            Ball ball = new Ball(body, image, false);
-        
-            cast.AddActor(Constants.BALL_GROUP, ball);
+            Image image = new Image(Constants.PLAYER1_IMAGE);
+            Player player1 = new Player(body, image, false);
+            
+            Body body2 = new Body(position2, size, velocity);
+            Image image2 = new Image(Constants.PLAYER2_IMAGE);
+            Player player2 = new Player(body2, image2, false);
+            
+            cast.AddActor(Constants.BALL_GROUP, player1);        
+            cast.AddActor(Constants.BALL_GROUP, player2);
         }
 
         private void AddBricks(Cast cast)
@@ -300,7 +307,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
@@ -320,7 +327,7 @@ namespace Unit06.Game.Directing
 
         private void AddUpdateActions(Script script)
         {
-            script.AddAction(Constants.UPDATE, new MoveBallAction());
+            script.AddAction(Constants.UPDATE, new MovePlayerAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));

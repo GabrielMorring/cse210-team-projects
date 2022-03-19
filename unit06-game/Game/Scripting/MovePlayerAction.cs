@@ -1,16 +1,16 @@
 using Unit06.Game.Casting;
 namespace Unit06.Game.Scripting
 {
-    public class MoveBallAction : Action
+    public class MovePlayerAction : Action
     {
-        public MoveBallAction()
+        public MovePlayerAction()
         {
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            Body body = ball.GetBody();
+            Player player = (Player)cast.GetFirstActor(Constants.BALL_GROUP);
+            Body body = player.GetBody();
             Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
             position = position.Add(velocity);

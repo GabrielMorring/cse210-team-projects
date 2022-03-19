@@ -7,7 +7,7 @@ namespace Unit06.Game.Casting
     /// <summary>
     /// 
     /// </summary>
-    public class Ball : Actor
+    public class Player : Actor
     {
         private static Random random = new Random();
 
@@ -17,7 +17,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Ball(Body body, Image image, bool debug = false) : base(debug)
+        public Player(Body body, Image image, bool debug = false) : base(debug)
         {
             this.body = body;
             this.image = image;

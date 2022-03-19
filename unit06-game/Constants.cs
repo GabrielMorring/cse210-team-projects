@@ -97,7 +97,8 @@ namespace Unit06
 
         // BALL
         public static string BALL_GROUP = "balls";
-        public static string BALL_IMAGE = "Assets/Images/000.png";
+        public static string PLAYER1_IMAGE = "Assets/Images/p1.png";
+        public static string PLAYER2_IMAGE = "Assets/Images/p2.png";
         public static int BALL_WIDTH = 28;
         public static int BALL_HEIGHT = 28;
         public static int BALL_VELOCITY = 6;
