@@ -120,6 +120,7 @@ namespace Unit06.Game.Directing
         private void PrepareGameOver(Cast cast, Script script)
         {
             AddPlayers(cast);
+            
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
