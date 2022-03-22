@@ -123,7 +123,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.NEW_GAME, 5, DateTime.Now);
+            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.NEW_GAME, 2, DateTime.Now);
             script.AddAction(Constants.INPUT, ta);
 
             AddOutputActions(script);
