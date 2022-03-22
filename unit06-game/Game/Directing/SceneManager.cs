@@ -66,6 +66,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
+            cast.ClearActors(Constants.WINNER_GROUP);
             AddPlayers(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -104,6 +105,21 @@ namespace Unit06.Game.Directing
             AddPlayers(cast);
             
             AddDialog(cast, Constants.WAS_GOOD_GAME);
+
+            foreach(Player player in cast.GetActors(Constants.PLAYER_GROUP))
+            {
+
+                Player winner = (Player)cast.GetFirstActor(Constants.WINNER_GROUP);
+
+                if(winner.GetPlayerNum() == 1)
+                {
+                    AddDialog(cast, Constants.PLAYER_ONE_WINS);
+                } 
+                if(winner.GetPlayerNum() == 2)
+                {
+                    AddDialog(cast, Constants.PLAYER_TWO_WINS);
+                }
+            }
 
             script.ClearAllActions();
 

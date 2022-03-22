@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
+using System;
 
 
 namespace Unit06.Game.Scripting
@@ -25,16 +26,8 @@ namespace Unit06.Game.Scripting
                     Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                     stats.AddLevel();
                     
-                    callback.OnNext(Constants.GAME_OVER);
-
-                    if(player.GetPlayerNum() == 1)
-                    {
-                        callback.OnNext(Constants.PLAYER_ONE_WINS);
-                    } 
-                    else if(player.GetPlayerNum() == 2)
-                    {
-                        callback.OnNext(Constants.PLAYER_TWO_WINS);
-                    } 
+                    cast.AddActor(Constants.WINNER_GROUP, player);
+                    callback.OnNext(Constants.GAME_OVER); 
                     
                     
                 }

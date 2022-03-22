@@ -104,6 +104,7 @@ namespace Unit06
         public static string SCORE_FORMAT = "SCORE: {0}";
 
         // PLAYER
+        public static string WINNER_GROUP = "winner";
         public static string PLAYER_GROUP = "players";
         public static string PLAYER1_IMAGE = "Assets/Images/p1.png";
         public static string PLAYER2_IMAGE = "Assets/Images/p2.png";
