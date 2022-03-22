@@ -31,10 +31,6 @@ namespace Unit06.Game.Directing
             {
                 PrepareNextLevel(cast, script);
             }
-            else if (scene == Constants.TRY_AGAIN)
-            {
-                PrepareTryAgain(cast, script);
-            }
             else if (scene == Constants.IN_PLAY)
             {
                 PrepareInPlay(cast, script);
@@ -82,20 +78,6 @@ namespace Unit06.Game.Directing
 
             PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.WELCOME_SOUND);
             script.AddAction(Constants.OUTPUT, sa);
-        }
-
-        private void PrepareTryAgain(Cast cast, Script script)
-        {
-            AddPlayers(cast);
-            AddDialog(cast, Constants.PREP_TO_LAUNCH);
-
-            script.ClearAllActions();
-            
-            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
-            script.AddAction(Constants.INPUT, ta);
-            
-            AddUpdateActions(script);
-            AddOutputActions(script);
         }
 
         private void PrepareInPlay(Cast cast, Script script)
