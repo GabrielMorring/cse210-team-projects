@@ -163,21 +163,22 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.OBSTACLE_GROUP);
         
-            int x = Constants.SCREEN_WIDTH - Constants.PLAYER_WIDTH;
+            int x = Constants.SCREEN_WIDTH - Constants.OBSTACLE_WIDTH;
             int y = (int)Constants.SCREEN_HEIGHT / 3;
 
-            
+
             Point position = new Point(x, y);
             Point position2 = new Point(x, (int)(y * 1.5));
 
-            Point size = new Point(Constants.PLAYER_WIDTH * 2, Constants.PLAYER_HEIGHT * 2);
+            Point size = new Point(Constants.OBSTACLE_WIDTH * 2, Constants.OBSTACLE_HEIGHT * 2);
             Point velocity = new Point(-5, 0);
         
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.PLAYER1_IMAGE);
+            Image image = new Image(Constants.OBSTACLE_IMAGE);
             Obstacle obstacle = new Obstacle(body, image, false);
             
-            cast.AddActor(Constants.OBSTACLE_GROUP, obstacle);        
+            cast.AddActor(Constants.OBSTACLE_GROUP, obstacle);
+            cast.AddActor(Constants.COURSEFEATURE_GROUP, obstacle);        
         }
 
         private void AddFinishLine(Cast cast)
@@ -317,6 +318,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MovePlayerAction());
             script.AddAction(Constants.UPDATE, new MovePlayerAction());
+            script.AddAction(Constants.UPDATE, new MoveCourseFeatureAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
