@@ -7,7 +7,7 @@ namespace Unit06.Game.Casting
     /// <summary>
     /// 
     /// </summary>
-    public class Obstacle : Actor
+    public class Obstacle : CourseFeature
     {
         private static Random random = new Random();
 
@@ -17,10 +17,9 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Obstacle(Body body, Image image, bool debug = false) : base(debug)
+        public Obstacle(Body body, Image image, bool debug = false) : base(body, image, debug)
         {
-            this.body = body;
-            this.image = image;
+            
         }
 
         /// <summary>
@@ -47,24 +46,6 @@ namespace Unit06.Game.Casting
             double vy = velocity.GetY() * -1;
             Point newVelocity = new Point((int)vx, (int)vy);
             body.SetVelocity(newVelocity);
-        }
-        
-        /// <summary>
-        /// Gets the body.
-        /// </summary>
-        /// <returns>The body.</returns>
-        public Body GetBody()
-        {
-            return body;
-        }
-
-        /// <summary>
-        /// Gets the image.
-        /// </summary>
-        /// <returns>The image.</returns>
-        public Image GetImage()
-        {
-            return image;
         }
 
         /// <summary>

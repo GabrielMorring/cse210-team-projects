@@ -112,6 +112,9 @@ namespace Unit06
         public static int PLAYER_HEIGHT = 25;
         public static int PLAYER_VELOCITY = 6;
 
+        // OBSTACLE
+        public static string OBSTACLE_GROUP = "obstacles";
+
         // FINISH LINE
         public static string FINISH_LINE_GROUP = "finishLine";
         public static string FINISH_LINE_IMAGE = "Assets/Images/finishLine.png";

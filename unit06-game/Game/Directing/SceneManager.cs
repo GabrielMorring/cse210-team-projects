@@ -48,6 +48,7 @@ namespace Unit06.Game.Directing
             AddScore(cast);
             AddLives(cast);
             AddPlayers(cast);
+            AddObstacle(cast);
             AddFinishLine(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
@@ -156,6 +157,27 @@ namespace Unit06.Game.Directing
             
             cast.AddActor(Constants.PLAYER_GROUP, player1);        
             cast.AddActor(Constants.PLAYER_GROUP, player2);
+        }
+
+        private void AddObstacle(Cast cast)
+        {
+            cast.ClearActors(Constants.OBSTACLE_GROUP);
+        
+            int x = Constants.SCREEN_WIDTH - Constants.PLAYER_WIDTH;
+            int y = (int)Constants.SCREEN_HEIGHT / 3;
+
+            
+            Point position = new Point(x, y);
+            Point position2 = new Point(x, (int)(y * 1.5));
+
+            Point size = new Point(Constants.PLAYER_WIDTH * 2, Constants.PLAYER_HEIGHT * 2);
+            Point velocity = new Point(-5, 0);
+        
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.PLAYER1_IMAGE);
+            Obstacle obstacle = new Obstacle(body, image, false);
+            
+            cast.AddActor(Constants.OBSTACLE_GROUP, obstacle);        
         }
 
         private void AddFinishLine(Cast cast)
@@ -274,6 +296,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawObstacleAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawFinishLineAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
