@@ -30,7 +30,6 @@ namespace Unit06.Game.Scripting
                 {
                     position = new Point(Constants.SCREEN_WIDTH - Constants.PLAYER_WIDTH, position.GetY());
                 }
-
                 if (y < 0)
                 {
                     position = new Point(position.GetX(), 0);
@@ -39,8 +38,23 @@ namespace Unit06.Game.Scripting
                 {
                     position = new Point(position.GetX(), Constants.SCREEN_HEIGHT - Constants.PLAYER_HEIGHT);
                 }
+                body.SetPosition(position);
+                
 
-                body.SetPosition(position);  
+
+                foreach(Actor tempObstacle in cast.GetActors(Constants.OBSTACLE_GROUP))
+                {
+                    Obstacle obstacle = (Obstacle)tempObstacle;
+
+                    if ( x >= obstacle.GetBody().GetPosition().GetX() - Constants.PLAYER_WIDTH && x <= obstacle.GetBody().GetPosition().GetX() + Constants.OBSTACLE_WIDTH)
+                    {
+                        if (y <= obstacle.GetBody().GetPosition().GetY() && y >= obstacle.GetBody().GetPosition().GetY() - Constants.OBSTACLE_HEIGHT)
+                        {
+                            position = new Point(obstacle.GetBody().GetPosition().GetX() - Constants.PLAYER_WIDTH, obstacle.GetBody().GetPosition().GetY());
+                        }
+                    }
+                    body.SetPosition(position);
+                } 
             }     
         }
     }
