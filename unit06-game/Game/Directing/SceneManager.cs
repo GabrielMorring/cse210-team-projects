@@ -171,7 +171,7 @@ namespace Unit06.Game.Directing
             Point position2 = new Point(x, (int)(y * 1.5));
 
             Point size = new Point(Constants.OBSTACLE_WIDTH * 2, Constants.OBSTACLE_HEIGHT * 2);
-            Point velocity = new Point(-5, 0);
+            Point velocity = new Point(Constants.OBSTACLE_VELOCITY, 0);
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.OBSTACLE_IMAGE);

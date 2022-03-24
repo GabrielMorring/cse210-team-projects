@@ -118,7 +118,7 @@ namespace Unit06
         public static string OBSTACLE_IMAGE = "Assets/Images/obstacle.png";
         public static int OBSTACLE_WIDTH = 50;
         public static int OBSTACLE_HEIGHT = 50;
-        public static int OBSTACLE_VELOCITY = -5;
+        public static int OBSTACLE_VELOCITY = -1;
 
 
         // FINISH LINE

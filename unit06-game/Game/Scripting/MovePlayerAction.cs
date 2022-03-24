@@ -46,13 +46,25 @@ namespace Unit06.Game.Scripting
                 {
                     Obstacle obstacle = (Obstacle)tempObstacle;
 
-                    if ( x >= obstacle.GetBody().GetPosition().GetX() - Constants.PLAYER_WIDTH && x <= obstacle.GetBody().GetPosition().GetX() + Constants.OBSTACLE_WIDTH)
+                    if (x >= obstacle.GetBody().GetPosition().GetX() && x <= obstacle.GetBody().GetPosition().GetX() + Constants.OBSTACLE_WIDTH)
                     {
-                        if (y <= obstacle.GetBody().GetPosition().GetY() && y >= obstacle.GetBody().GetPosition().GetY() - Constants.OBSTACLE_HEIGHT)
+                        if (y <= obstacle.GetBody().GetPosition().GetY() + Constants.OBSTACLE_HEIGHT && y >= obstacle.GetBody().GetPosition().GetY() - Constants.PLAYER_HEIGHT)
                         {
-                            position = new Point(obstacle.GetBody().GetPosition().GetX() - Constants.PLAYER_WIDTH, obstacle.GetBody().GetPosition().GetY());
+                            position = new Point(x,y);
                         }
                     }
+
+                    else if (x >= obstacle.GetBody().GetPosition().GetX() - Constants.PLAYER_WIDTH && x <= obstacle.GetBody().GetPosition().GetX() + Constants.OBSTACLE_WIDTH)
+                    {
+                        if (y <= obstacle.GetBody().GetPosition().GetY() + Constants.OBSTACLE_HEIGHT && y >= obstacle.GetBody().GetPosition().GetY() - Constants.PLAYER_HEIGHT)
+                        {
+                            position = new Point(obstacle.GetBody().GetPosition().GetX() - (int)(Constants.PLAYER_WIDTH * 1.3), position.GetY());
+                        }
+
+                    }
+                
+
+                    
                     body.SetPosition(position);
                 } 
             }     
