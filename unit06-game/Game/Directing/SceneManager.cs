@@ -163,7 +163,7 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.OBSTACLE_GROUP);
         
-            int x = Constants.SCREEN_WIDTH - Constants.OBSTACLE_WIDTH;
+            int x = Constants.SCREEN_WIDTH;
             int y = (int)Constants.SCREEN_HEIGHT / 3;
 
 
@@ -171,7 +171,7 @@ namespace Unit06.Game.Directing
             Point position2 = new Point(x, (int)(y * 1.5));
 
             Point size = new Point(Constants.OBSTACLE_WIDTH * 2, Constants.OBSTACLE_HEIGHT * 2);
-            Point velocity = new Point(Constants.OBSTACLE_VELOCITY, 0);
+            Point velocity = new Point(Constants.COURSEFEATURE_VELOCITY, 0);
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.OBSTACLE_IMAGE);
@@ -185,13 +185,13 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.FINISH_LINE_GROUP);
         
-            int x = Constants.SCREEN_WIDTH - 100;
+            int x = Constants.SCREEN_WIDTH;
             int y = 50;
         
             Point position = new Point(x, y);
 
             Point size = new Point(Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
-            Point velocity = new Point(0, 0);
+            Point velocity = new Point(Constants.COURSEFEATURE_VELOCITY, 0);
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.FINISH_LINE_IMAGE);
@@ -199,7 +199,8 @@ namespace Unit06.Game.Directing
             
             
             
-            cast.AddActor(Constants.FINISH_LINE_GROUP, finishLine);        
+            cast.AddActor(Constants.FINISH_LINE_GROUP, finishLine);   
+            cast.AddActor(Constants.COURSEFEATURE_GROUP, finishLine);           
         }
 
      

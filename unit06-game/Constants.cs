@@ -112,13 +112,16 @@ namespace Unit06
         public static int PLAYER_HEIGHT = 25;
         public static int PLAYER_VELOCITY = 6;
 
-        // OBSTACLE
+        // COURSE FEATURE
         public static string COURSEFEATURE_GROUP = "course features";
+        public static int COURSEFEATURE_VELOCITY = -5;
+
+        
+        // OBSTACLE
         public static string OBSTACLE_GROUP = "obstacles";
         public static string OBSTACLE_IMAGE = "Assets/Images/obstacle.png";
         public static int OBSTACLE_WIDTH = 50;
         public static int OBSTACLE_HEIGHT = 50;
-        public static int OBSTACLE_VELOCITY = -1;
 
 
         // FINISH LINE
@@ -126,7 +129,6 @@ namespace Unit06
         public static string FINISH_LINE_IMAGE = "Assets/Images/finishLine.png";
         public static int FINISH_LINE_WIDTH = 25;
         public static int FINISH_LINE_HEIGHT = 25;
-        public static int FINISH_LINE_VELOCITY = 6;
 
 
        
