@@ -47,9 +47,10 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddPlayers(cast);
-            AddObstacle(cast);
+            AddObstacle(cast, 250);
             AddFinishLine(cast);
+            AddPlayers(cast);
+            
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -90,6 +91,8 @@ namespace Unit06.Game.Directing
 
             ControlPlayer1Action action1 = new ControlPlayer1Action(KeyboardService);
             ControlPlayer2Action action2 = new ControlPlayer2Action(KeyboardService);
+
+            
 
             script.AddAction(Constants.INPUT, action1);
             AddUpdateActions(script);    
@@ -159,12 +162,20 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.PLAYER_GROUP, player2);
         }
 
-        private void AddObstacle(Cast cast)
+        private void AddObstacle(Cast cast, int height)
         {
             cast.ClearActors(Constants.OBSTACLE_GROUP);
         
             int x = Constants.SCREEN_WIDTH;
-            int y = (int)Constants.SCREEN_HEIGHT / 3;
+            int y = height;
+            if(height > Constants.SCREEN_HEIGHT)
+            {
+                y = Constants.SCREEN_HEIGHT - Constants.OBSTACLE_HEIGHT;
+            }
+            if(height < 0)
+            {
+                y = 0;
+            }
 
 
             Point position = new Point(x, y);
