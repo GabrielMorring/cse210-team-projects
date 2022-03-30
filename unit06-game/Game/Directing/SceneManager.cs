@@ -47,8 +47,8 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddObstacle(cast, 250);
-            AddFinishLine(cast);
+            // AddObstacle(cast, 250);
+            // AddFinishLine(cast);
             AddPlayers(cast);
             
             AddDialog(cast, Constants.ENTER_TO_START);
@@ -92,7 +92,8 @@ namespace Unit06.Game.Directing
             ControlPlayer1Action action1 = new ControlPlayer1Action(KeyboardService);
             ControlPlayer2Action action2 = new ControlPlayer2Action(KeyboardService);
 
-            
+            AddObstacle(cast, 100);
+            AddFinishLine(cast);
 
             script.AddAction(Constants.INPUT, action1);
             AddUpdateActions(script);    
@@ -179,7 +180,6 @@ namespace Unit06.Game.Directing
 
 
             Point position = new Point(x, y);
-            Point position2 = new Point(x, (int)(y * 1.5));
 
             Point size = new Point(Constants.OBSTACLE_WIDTH * 2, Constants.OBSTACLE_HEIGHT * 2);
             Point velocity = new Point(Constants.COURSEFEATURE_VELOCITY, 0);

@@ -17,20 +17,24 @@ namespace Unit06.Game.Scripting
         {
             
             
-            FinishLine finishLine = (FinishLine)cast.GetFirstActor(Constants.FINISH_LINE_GROUP);
-            Body body = finishLine.GetBody();
-            Image image = finishLine.GetImage();
-            Point position = body.GetPosition();
-            videoService.DrawImage(image, position);
-
-            if (finishLine.IsDebug())
+            foreach(Actor actor in cast.GetActors(Constants.FINISH_LINE_GROUP))
             {
-                Rectangle rectangle = body.GetRectangle();
-                Point size = rectangle.GetSize();
-                Point pos = rectangle.GetPosition();
-                videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
-            }
+                FinishLine finishLine = (FinishLine)actor;
+
+                Body body = finishLine.GetBody();
+                Image image = finishLine.GetImage();
+                Point position = body.GetPosition();
+                videoService.DrawImage(image, position);
             
+
+                if (finishLine.IsDebug())
+                {
+                    Rectangle rectangle = body.GetRectangle();
+                    Point size = rectangle.GetSize();
+                    Point pos = rectangle.GetPosition();
+                    videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
+                }
+            }
                             
         }
     }
