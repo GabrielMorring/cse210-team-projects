@@ -105,6 +105,19 @@ namespace Unit06.Game.Casting
             return result;
         }
 
+        public Actor GetLastActor(string group)
+        {
+            Actor result = null;
+            if (actors.ContainsKey(group))
+            {
+                if (actors[group].Count > 0)
+                {
+                    result = actors[group][actors[group].Count - 1];
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// Removes the given actor from the given group.
         /// </summary>

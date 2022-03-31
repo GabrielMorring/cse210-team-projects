@@ -101,7 +101,8 @@ namespace Unit06
         public static string SCORE_GROUP = "score";
         public static string LEVEL_FORMAT = "LEVEL: {0}";
         public static string LIVES_FORMAT = "LIVES: {0}";
-        public static string SCORE_FORMAT = "SCORE: {0}";
+        public static string SCORE1_FORMAT = "P1 WINS: {0}";
+        public static string SCORE2_FORMAT = "P2 WINS: {0}";
 
         // PLAYER
         public static string WINNER_GROUP = "winner";

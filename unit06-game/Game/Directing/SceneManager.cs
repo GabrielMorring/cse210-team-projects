@@ -44,9 +44,9 @@ namespace Unit06.Game.Directing
         private void PrepareNewGame(Cast cast, Script script)
         {
             AddStats(cast);
-            AddLevel(cast);
-            AddScore(cast);
-            AddLives(cast);
+            AddP1Score(cast);
+            AddP2Score(cast);
+
             AddPlayers(cast);
             
             AddDialog(cast, Constants.ENTER_TO_START);
@@ -273,13 +273,25 @@ namespace Unit06.Game.Directing
 
         
 
-        private void AddScore(Cast cast)
+        private void AddP1Score(Cast cast)
         {
-            cast.ClearActors(Constants.SCORE_GROUP);
+            // cast.ClearActors(Constants.SCORE_GROUP);
 
-            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.SCORE1_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_CENTER, Constants.WHITE);
-            Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
+            Point position = new Point(Constants.SCREEN_WIDTH - 100, Constants.HUD_MARGIN);
+            
+            Label label = new Label(text, position);
+            cast.AddActor(Constants.SCORE_GROUP, label);   
+        }
+
+        private void AddP2Score(Cast cast)
+        {
+            // cast.ClearActors(Constants.SCORE_GROUP);
+
+            Text text = new Text(Constants.SCORE2_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+                Constants.ALIGN_CENTER, Constants.WHITE);
+            Point position = new Point(100, Constants.HUD_MARGIN);
             
             Label label = new Label(text, position);
             cast.AddActor(Constants.SCORE_GROUP, label);   
