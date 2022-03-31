@@ -76,7 +76,7 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void MoveRight()
         {
-            Point velocity = new Point(Constants.PLAYER_VELOCITY, 0);
+            Point velocity = new Point(Constants.PLAYER_VELOCITY / 5, 0);
             body.SetVelocity(velocity);
         }
         
