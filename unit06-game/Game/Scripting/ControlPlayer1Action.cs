@@ -39,7 +39,7 @@ namespace Unit06.Game.Scripting
             else
             {
                 player.StopMoving();
-                position = position.Add(new Point(Constants.COURSEFEATURE_VELOCITY, 0));
+                position = position.Add(new Point(Constants.COURSEFEATURE_VELOCITY * 2, 0));
                 body.SetPosition(position);
             }
         }
