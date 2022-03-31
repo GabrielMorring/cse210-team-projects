@@ -16,6 +16,10 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
+
+            Body body = player.GetBody();
+            Point position = body.GetPosition();
+            
             if (keyboardService.IsKeyDown(Constants.LEFT))
             {
                 player.MoveLeft();
@@ -35,6 +39,8 @@ namespace Unit06.Game.Scripting
             else
             {
                 player.StopMoving();
+                position = position.Add(new Point(Constants.COURSEFEATURE_VELOCITY, 0));
+                body.SetPosition(position);
             }
         }
     }
