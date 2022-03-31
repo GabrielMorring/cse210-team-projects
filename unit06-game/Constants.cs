@@ -129,7 +129,7 @@ namespace Unit06
         public static string FINISH_LINE_IMAGE = "Assets/Images/finishLine.png";
         public static int FINISH_LINE_WIDTH = 25;
         public static int FINISH_LINE_HEIGHT = 25;
-
+        public static int FINISH_LINE_DISTANCE = 3000;
 
        
         // DIALOG

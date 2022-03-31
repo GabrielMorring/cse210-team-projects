@@ -92,8 +92,7 @@ namespace Unit06.Game.Directing
             ControlPlayer1Action action1 = new ControlPlayer1Action(KeyboardService);
             ControlPlayer2Action action2 = new ControlPlayer2Action(KeyboardService);
 
-            AddObstacle(cast, 100);
-            AddFinishLine(cast);
+            AddCourseFeatures(cast);
 
             script.AddAction(Constants.INPUT, action1);
             AddUpdateActions(script);    
@@ -163,11 +162,11 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.PLAYER_GROUP, player2);
         }
 
-        private void AddObstacle(Cast cast, int height)
+        private void AddObstacle(Cast cast, int height, int distance)
         {
-            cast.ClearActors(Constants.OBSTACLE_GROUP);
+            // cast.ClearActors(Constants.OBSTACLE_GROUP);
         
-            int x = Constants.SCREEN_WIDTH;
+            int x = Constants.SCREEN_WIDTH + distance;
             int y = height;
             if(height > Constants.SCREEN_HEIGHT)
             {
@@ -196,7 +195,7 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.FINISH_LINE_GROUP);
         
-            int x = Constants.SCREEN_WIDTH;
+            int x = Constants.SCREEN_WIDTH + Constants.FINISH_LINE_DISTANCE;
             int y = 50;
         
             Point position = new Point(x, y);
@@ -213,6 +212,27 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.FINISH_LINE_GROUP, finishLine);   
             cast.AddActor(Constants.COURSEFEATURE_GROUP, finishLine);           
         }
+
+        // Course Features for that go in a level
+
+
+        private void AddCourseFeatures(Cast cast)
+        {
+            cast.ClearActors(Constants.COURSEFEATURE_GROUP);
+        
+            AddFinishLine(cast);
+            AddObstacle(cast, 100, 200);
+            AddObstacle(cast, 200, 300);
+            AddObstacle(cast, 300, 400);
+            AddObstacle(cast, 400, 500);
+            AddObstacle(cast, 500, 600);
+            AddObstacle(cast, 600, 700);
+            AddObstacle(cast, 700, 800);
+            AddObstacle(cast, 600, 700);
+
+            
+        }
+
 
      
 
