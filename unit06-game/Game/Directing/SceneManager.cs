@@ -47,8 +47,6 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            // AddObstacle(cast, 250);
-            // AddFinishLine(cast);
             AddPlayers(cast);
             
             AddDialog(cast, Constants.ENTER_TO_START);
