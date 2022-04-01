@@ -25,19 +25,6 @@ namespace Unit06.Game.Scripting
                 {
                     player.AddScore();
 
-                    /*
-                    if (player.GetPlayerNum() == 1)
-                    {
-                        Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-                        stats.AddScore();
-                    }
-                    if (player.GetPlayerNum() == 2)
-                    {
-                        Stats stats = (Stats)cast.GetLastActor(Constants.STATS_GROUP);
-                        stats.AddScore();
-                    }
-                    */
-
                     cast.AddActor(Constants.WINNER_GROUP, player);
                     callback.OnNext(Constants.GAME_OVER); 
                 }

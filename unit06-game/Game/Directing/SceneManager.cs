@@ -160,9 +160,7 @@ namespace Unit06.Game.Directing
         }
 
         private void AddObstacle(Cast cast, int height, int distance)
-        {
-            // cast.ClearActors(Constants.OBSTACLE_GROUP);
-        
+        {        
             int x = Constants.SCREEN_WIDTH + distance;
             int y = height;
             if(height > Constants.SCREEN_HEIGHT)
@@ -211,8 +209,6 @@ namespace Unit06.Game.Directing
         }
 
         // Course Features for that go in a level
-
-
         private void AddCourseFeatures(Cast cast)
         {
             cast.ClearActors(Constants.COURSEFEATURE_GROUP);
@@ -259,8 +255,6 @@ namespace Unit06.Game.Directing
 
         private void AddLives(Cast cast)
         {
-            //cast.ClearActors(Constants.LIVES_GROUP);
-
             Text text = new Text(Constants.LIVES_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_RIGHT, Constants.WHITE);
             Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
@@ -273,9 +267,7 @@ namespace Unit06.Game.Directing
         
 
         private void AddP1Score(Cast cast)
-        {
-            // cast.ClearActors(Constants.SCORE_GROUP);
-    
+        {    
             Text text = new Text(Constants.SCORE1_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.SCREEN_WIDTH - 100, Constants.HUD_MARGIN);
@@ -286,8 +278,6 @@ namespace Unit06.Game.Directing
 
         private void AddP2Score(Cast cast)
         {
-            // cast.ClearActors(Constants.SCORE_GROUP);
-
             Text text = new Text(Constants.SCORE2_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(100, Constants.HUD_MARGIN);
@@ -298,7 +288,6 @@ namespace Unit06.Game.Directing
 
         private void AddStats(Cast cast)
         {
-            // cast.ClearActors(Constants.STATS_GROUP);
             Stats p1Stats = new Stats();
             cast.AddActor(Constants.STATS_GROUP, p1Stats);
 
