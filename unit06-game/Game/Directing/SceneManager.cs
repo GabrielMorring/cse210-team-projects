@@ -108,19 +108,18 @@ namespace Unit06.Game.Directing
             
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
-            foreach(Player player in cast.GetActors(Constants.PLAYER_GROUP))
+            Player winner = (Player)cast.GetFirstActor(Constants.WINNER_GROUP);
+            if(winner.GetPlayerNum() == 1)
             {
-
-                Player winner = (Player)cast.GetFirstActor(Constants.WINNER_GROUP);
-
-                if(winner.GetPlayerNum() == 1)
-                {
-                    AddDialog(cast, Constants.PLAYER_ONE_WINS);
-                } 
-                if(winner.GetPlayerNum() == 2)
-                {
-                    AddDialog(cast, Constants.PLAYER_TWO_WINS);
-                }
+                AddDialog(cast, Constants.PLAYER_ONE_WINS);
+                Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+                stats.AddScore();
+            } 
+            else if(winner.GetPlayerNum() == 2)
+            {
+                AddDialog(cast, Constants.PLAYER_TWO_WINS);
+                Stats stats = (Stats)cast.GetLastActor(Constants.STATS_GROUP);
+                stats.AddScore();
             }
 
             script.ClearAllActions();
@@ -300,8 +299,11 @@ namespace Unit06.Game.Directing
         private void AddStats(Cast cast)
         {
             // cast.ClearActors(Constants.STATS_GROUP);
-            Stats stats = new Stats();
-            cast.AddActor(Constants.STATS_GROUP, stats);
+            Stats p1Stats = new Stats();
+            cast.AddActor(Constants.STATS_GROUP, p1Stats);
+
+            Stats p2Stats = new Stats();
+            cast.AddActor(Constants.STATS_GROUP, p2Stats);
         }
 
         private List<List<string>> LoadLevel(string filename)
