@@ -15,6 +15,8 @@ namespace Unit06.Game.Casting
         private Image image;
         private int playerNum;
 
+        private int score;
+
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
@@ -23,6 +25,7 @@ namespace Unit06.Game.Casting
             this.body = body;
             this.image = image;
             this.playerNum = playerNum;
+            score = 0;
         }
         
         /// <summary>
@@ -39,8 +42,20 @@ namespace Unit06.Game.Casting
             playerNum = num;
         }
         
+        public int GetScore()
+        {
+            return score;
+        }
+
+        public void SetScore(int num)
+        {
+            score = num;
+        }
         
-        
+        public void AddScore()
+        {
+            score += 1;
+        }
         
         public Body GetBody()
         {

@@ -73,6 +73,15 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
+        /// Adds to the score.
+        /// </summary>
+        /// <returns>The score.</returns>
+        public void AddScore()
+        {
+            score += 1;
+        }
+
+        /// <summary>
         /// Removes a life.
         /// </summary>
         public void RemoveLife()
