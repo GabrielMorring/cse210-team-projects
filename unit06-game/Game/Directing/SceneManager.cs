@@ -45,6 +45,7 @@ namespace Unit06.Game.Directing
         {
             AddStats(cast);
             AddP1Score(cast);
+            // AddStats(cast);
             AddP2Score(cast);
 
             AddPlayers(cast);
@@ -227,6 +228,11 @@ namespace Unit06.Game.Directing
             AddObstacle(cast, 600, 700);
             AddObstacle(cast, 700, 800);
             AddObstacle(cast, 600, 700);
+
+            AddObstacle(cast, 100, 800);
+            AddObstacle(cast, 300, 800);
+            AddObstacle(cast, 200, 500);
+            AddObstacle(cast, 400, 200);
 
             
         }

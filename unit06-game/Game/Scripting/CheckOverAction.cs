@@ -30,6 +30,7 @@ namespace Unit06.Game.Scripting
                         Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                         stats.AddScore();
                     }
+                    
                     if (player.GetPlayerNum() == 2)
                     {
                         Stats stats = (Stats)cast.GetLastActor(Constants.STATS_GROUP);
