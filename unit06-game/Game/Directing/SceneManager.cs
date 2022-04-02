@@ -190,6 +190,32 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.COURSEFEATURE_GROUP, obstacle);        
         }
 
+        private void AddPowerUp(Cast cast, int height, int distance)
+        {
+            int x = Constants.SCREEN_WIDTH + distance;
+            int y = height;
+            if(height > Constants.SCREEN_HEIGHT)
+            {
+                y = Constants.SCREEN_HEIGHT - Constants.POWERUP_HEIGHT;
+            }
+            if(height < 0)
+            {
+                y = 0;
+            }
+
+            Point position = new Point(x, y);
+
+            Point size = new Point(Constants.POWERUP_WIDTH * 2, Constants.POWERUP_HEIGHT * 2);
+            Point velocity = new Point(Constants.COURSEFEATURE_VELOCITY, 0);
+        
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.POWERUP_IMAGE);
+            PowerUp powerup = new PowerUp(body, image, false);
+            
+            cast.AddActor(Constants.POWERUP_GROUP, powerup);
+            cast.AddActor(Constants.COURSEFEATURE_GROUP, powerup);        
+        }
+
         private void AddFinishLine(Cast cast)
         {
             cast.ClearActors(Constants.FINISH_LINE_GROUP);
@@ -219,7 +245,9 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.COURSEFEATURE_GROUP);
             cast.ClearActors(Constants.OBSTACLE_GROUP);
-        
+            cast.ClearActors(Constants.POWERUP_GROUP);
+
+            AddPowerUp(cast, 300, 50);
             AddFinishLine(cast);
             AddObstacle(cast, 100, 200);
             AddObstacle(cast, 400, 200);
@@ -294,8 +322,6 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.LIVES_GROUP, label);   
         }
 
-        
-
         private void AddP1Score(Cast cast)
         {
             // cast.ClearActors(Constants.SCORE_GROUP);
@@ -363,6 +389,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawObstacleAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawPowerUpAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawFinishLineAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
