@@ -62,9 +62,29 @@ namespace Unit06.Game.Scripting
                         }
 
                     }
-                
+                    body.SetPosition(position);
+                } 
 
-                    
+                foreach(Actor tempActor in cast.GetActors(Constants.POWERUP_GROUP))
+                {
+                    PowerUp powerup = (PowerUp)tempActor;
+
+                    if (x >= powerup.GetBody().GetPosition().GetX() && x <= powerup.GetBody().GetPosition().GetX() + Constants.OBSTACLE_WIDTH)
+                    {
+                        if (y <= powerup.GetBody().GetPosition().GetY() + Constants.OBSTACLE_HEIGHT && y >= powerup.GetBody().GetPosition().GetY() - Constants.PLAYER_HEIGHT)
+                        {
+                            position = new Point(player.GetBody().GetPosition().GetX() + 250,y);
+                        }
+                    }
+
+                    else if (x >= powerup.GetBody().GetPosition().GetX() - Constants.PLAYER_WIDTH && x <= powerup.GetBody().GetPosition().GetX() + Constants.OBSTACLE_WIDTH)
+                    {
+                        if (y <= powerup.GetBody().GetPosition().GetY() + Constants.OBSTACLE_HEIGHT && y >= powerup.GetBody().GetPosition().GetY() - Constants.PLAYER_HEIGHT)
+                        {
+                            position = new Point(player.GetBody().GetPosition().GetX() + 250,y);
+                        }
+
+                    }
                     body.SetPosition(position);
                 } 
             }     
