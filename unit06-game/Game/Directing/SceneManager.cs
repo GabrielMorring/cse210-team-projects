@@ -195,7 +195,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.FINISH_LINE_GROUP);
         
             int x = Constants.SCREEN_WIDTH + Constants.FINISH_LINE_DISTANCE;
-            int y = 50;
+            int y = 0;
         
             Point position = new Point(x, y);
 
