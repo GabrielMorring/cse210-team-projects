@@ -218,6 +218,7 @@ namespace Unit06.Game.Directing
         private void AddCourseFeatures(Cast cast)
         {
             cast.ClearActors(Constants.COURSEFEATURE_GROUP);
+            cast.ClearActors(Constants.OBSTACLE_GROUP);
         
             AddFinishLine(cast);
             AddObstacle(cast, 100, 200);
@@ -237,8 +238,6 @@ namespace Unit06.Game.Directing
 
             AddObstacle(cast, 200, 500);
             
-
-
             AddObstacle(cast, 100, 900);
             AddObstacle(cast, 400, 950);
             
