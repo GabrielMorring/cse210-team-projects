@@ -221,18 +221,36 @@ namespace Unit06.Game.Directing
         
             AddFinishLine(cast);
             AddObstacle(cast, 100, 200);
+            AddObstacle(cast, 400, 200);
+
             AddObstacle(cast, 200, 300);
             AddObstacle(cast, 300, 400);
             AddObstacle(cast, 400, 500);
             AddObstacle(cast, 500, 600);
             AddObstacle(cast, 600, 700);
-            AddObstacle(cast, 700, 800);
-            AddObstacle(cast, 600, 700);
 
+            AddObstacle(cast, 700, 800);
             AddObstacle(cast, 100, 800);
             AddObstacle(cast, 300, 800);
+
+            AddObstacle(cast, 600, 700);
+
             AddObstacle(cast, 200, 500);
-            AddObstacle(cast, 400, 200);
+            
+
+
+            AddObstacle(cast, 100, 900);
+            AddObstacle(cast, 400, 950);
+            
+            AddObstacle(cast, 400, 1500);
+            AddObstacle(cast, 300, 1550);
+
+            AddObstacle(cast, 700, 2000);
+            AddObstacle(cast, 500, 2000);
+            AddObstacle(cast, 700, 2500);
+
+            AddObstacle(cast, 100, 2500);
+            AddObstacle(cast, 400, 2250);
 
             
         }
