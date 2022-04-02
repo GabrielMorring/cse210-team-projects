@@ -247,7 +247,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.OBSTACLE_GROUP);
             cast.ClearActors(Constants.POWERUP_GROUP);
 
-            AddPowerUp(cast, 300, 50);
+            
             AddFinishLine(cast);
             AddObstacle(cast, 100, 200);
             AddObstacle(cast, 400, 200);
@@ -278,6 +278,18 @@ namespace Unit06.Game.Directing
 
             AddObstacle(cast, 100, 2500);
             AddObstacle(cast, 400, 2250);
+            
+            AddPowerUp(cast, 100, 50);
+            AddPowerUp(cast, 150, 50);
+            AddPowerUp(cast, 200, 50);
+            AddPowerUp(cast, 250, 50);
+            AddPowerUp(cast, 300, 50);
+            AddPowerUp(cast, 350, 50);
+            AddPowerUp(cast, 400, 50);
+            AddPowerUp(cast, 450, 50);
+            AddPowerUp(cast, 500, 50);
+
+            AddPowerUp(cast, 250, 600);
 
             
         }
