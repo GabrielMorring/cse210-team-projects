@@ -45,6 +45,7 @@ namespace Unit06.Game.Directing
         {
             AddStats(cast);
             AddP1Score(cast);
+            // AddStats(cast);
             AddP2Score(cast);
 
             AddPlayers(cast);
@@ -108,18 +109,19 @@ namespace Unit06.Game.Directing
             
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
-            Player winner = (Player)cast.GetFirstActor(Constants.WINNER_GROUP);
-            if(winner.GetPlayerNum() == 1)
+            foreach(Player player in cast.GetActors(Constants.PLAYER_GROUP))
             {
-                AddDialog(cast, Constants.PLAYER_ONE_WINS);
-                Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-                stats.AddScore();
-            } 
-            else if(winner.GetPlayerNum() == 2)
-            {
-                AddDialog(cast, Constants.PLAYER_TWO_WINS);
-                Stats stats = (Stats)cast.GetLastActor(Constants.STATS_GROUP);
-                stats.AddScore();
+
+                Player winner = (Player)cast.GetFirstActor(Constants.WINNER_GROUP);
+
+                if(winner.GetPlayerNum() == 1)
+                {
+                    AddDialog(cast, Constants.PLAYER_ONE_WINS);
+                } 
+                if(winner.GetPlayerNum() == 2)
+                {
+                    AddDialog(cast, Constants.PLAYER_TWO_WINS);
+                }
             }
 
             script.ClearAllActions();
@@ -227,6 +229,11 @@ namespace Unit06.Game.Directing
             AddObstacle(cast, 700, 800);
             AddObstacle(cast, 600, 700);
 
+            AddObstacle(cast, 100, 800);
+            AddObstacle(cast, 300, 800);
+            AddObstacle(cast, 200, 500);
+            AddObstacle(cast, 400, 200);
+
             
         }
 
@@ -299,11 +306,8 @@ namespace Unit06.Game.Directing
         private void AddStats(Cast cast)
         {
             // cast.ClearActors(Constants.STATS_GROUP);
-            Stats p1Stats = new Stats();
-            cast.AddActor(Constants.STATS_GROUP, p1Stats);
-
-            Stats p2Stats = new Stats();
-            cast.AddActor(Constants.STATS_GROUP, p2Stats);
+            Stats stats = new Stats();
+            cast.AddActor(Constants.STATS_GROUP, stats);
         }
 
         private List<List<string>> LoadLevel(string filename)
