@@ -124,6 +124,11 @@ namespace Unit06
         public static int OBSTACLE_WIDTH = 50;
         public static int OBSTACLE_HEIGHT = 50;
 
+        // POWERUP
+        public static string POWERUP_GROUP = "powerup";
+        public static string POWERUP_IMAGE = "Assets/Images/powerUp.png";
+        public static int POWERUP_WIDTH = 25;
+        public static int POWERUP_HEIGHT = 25;
 
         // FINISH LINE
         public static string FINISH_LINE_GROUP = "finishLine";
